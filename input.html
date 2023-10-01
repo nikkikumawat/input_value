@@ -1,5 +1,3 @@
-
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,22 +5,33 @@
     <title>Document</title>
 </head>
 <body>
+    
 
-    <input value="write your name" onclick=handleInput() />
+    <h2 onclick=handleClick()>write your name</h2>
+ 
 
     <script>
-        
+      let modified =   document.querySelector("h2")
 
-    let input = document.querySelector("input") 
+      let input = document.createElement("input")
 
-    input.style.border = "none"
-    function handleInput(){
-        input.style.border = "1px solid black"     
-    }
+       function handleClick(){
 
-    window.addEventListener("click", ()=>{
-         input.style.border = "none"
+        let data = modified.innerText
+        modified.innerHTML = ""
+        input.value = data
+        modified.appendChild(input)
+      } 
+
+
+     window.addEventListener("dblclick", ()=>{
+         let data = input.value
+         modified.innerHTML = data
+         modified.removeChild(input)
+         
       })
+  
+ 
  
     </script>
 </body>
